@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FORSDIGPOS - Kasir Digital Modern</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: #0f172a;
+      color: white;
+      overflow-x: hidden;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(15, 23, 42, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 15px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 999;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: 700;
+      color: #ef4444;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 25px;
+      transition: 0.3s;
+      font-weight: 500;
+    }
+
+    nav a:hover {
+      color: #ef4444;
+    }
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 120px 8% 60px;
+      gap: 50px;
+      flex-wrap: wrap;
+    }
+
+    .hero-text {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .hero-text h1 {
+      font-size: 58px;
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+
+    .hero-text h1 span {
+      color: #ef4444;
+    }
+
+    .hero-text p {
+      color: #cbd5e1;
+      margin-bottom: 30px;
+      font-size: 18px;
+      line-height: 1.8;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 32px;
+      background: #ef4444;
+      color: white;
+      text-decoration: none;
+      border-radius: 12px;
+      transition: 0.3s;
+      font-weight: 600;
+      box-shadow: 0 10px 20px rgba(239,68,68,0.3);
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      background: #dc2626;
+    }
+
+    .hero-image {
+      flex: 1;
+      min-width: 300px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .mockup {
+      width: 100%;
+      max-width: 520px;
+      background: #1e293b;
+      border-radius: 24px;
+      padding: 25px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .mockup-top {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+
+    .card {
+      background: #334155;
+      padding: 20px;
+      border-radius: 18px;
+      margin-bottom: 18px;
+    }
+
+    .card h3 {
+      color: #94a3b8;
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+
+    .card h2 {
+      font-size: 30px;
+      color: #22c55e;
+    }
+
+    .features {
+      padding: 100px 8%;
+      background: #111827;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .section-title h2 {
+      font-size: 42px;
+      margin-bottom: 15px;
+    }
+
+    .section-title p {
+      color: #94a3b8;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+    }
+
+    .feature-box {
+      background: #1e293b;
+      padding: 35px;
+      border-radius: 24px;
+      transition: 0.3s;
+      border: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .feature-box:hover {
+      transform: translateY(-10px);
+      border-color: #ef4444;
+    }
+
+    .feature-box .icon {
+      width: 70px;
+      height: 70px;
+      background: rgba(239,68,68,0.15);
+      border-radius: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 30px;
+      margin-bottom: 20px;
+    }
+
+    .feature-box h3 {
+      margin-bottom: 15px;
+      font-size: 22px;
+    }
+
+    .feature-box p {
+      color: #94a3b8;
+      line-height: 1.7;
+    }
+
+    .pricing {
+      padding: 100px 8%;
+      background: #0f172a;
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      margin-top: 50px;
+    }
+
+    .price-card {
+      background: #1e293b;
+      border-radius: 25px;
+      padding: 40px;
+      text-align: center;
+      transition: 0.3s;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .price-card:hover {
+      transform: scale(1.03);
+      border-color: #ef4444;
+    }
+
+    .price-card h3 {
+      font-size: 28px;
+      margin-bottom: 15px;
+    }
+
+    .price {
+      font-size: 48px;
+      color: #ef4444;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .price-card ul {
+      list-style: none;
+      margin-bottom: 30px;
+    }
+
+    .price-card ul li {
+      margin: 12px 0;
+      color: #cbd5e1;
+    }
+
+    .cta {
+      padding: 100px 8%;
+      text-align: center;
+      background: linear-gradient(135deg, #ef4444, #b91c1c);
+    }
+
+    .cta h2 {
+      font-size: 48px;
+      margin-bottom: 20px;
+    }
+
+    .cta p {
+      max-width: 700px;
+      margin: auto;
+      margin-bottom: 35px;
+      line-height: 1.8;
+      color: rgba(255,255,255,0.9);
+    }
+
+    footer {
+      background: #020617;
+      padding: 30px 8%;
+      text-align: center;
+      color: #94a3b8;
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .hero-text h1 {
+        font-size: 42px;
+      }
+
+      nav {
+        display: none;
+      }
+
+      .cta h2 {
+        font-size: 36px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">FORSDIGPOS</div>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#fitur">Fitur</a>
+      <a href="#harga">Harga</a>
+      <a href="#kontak">Kontak</a>
+    </nav>
+  </header>
+
+  <section class="hero" id="home">
+    <div class="hero-text">
+      <h1>Sistem <span>Kasir Digital</span> Modern Untuk Semua Usaha</h1>
+      <p>
+        FORSDIGPOS membantu warung, toko sembako, cafe, restoran, dan bisnis Anda menjadi lebih modern dengan sistem POS digital cepat, aman, dan mudah digunakan.
+      </p>
+      <a href="#harga" class="btn">Mulai Sekarang</a>
+    </div>
+
+    <div class="hero-image">
+      <div class="mockup">
+        <div class="mockup-top">
+          <div class="card">
+            <h3>Total Penjualan</h3>
+            <h2>Rp 12.5JT</h2>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Produk Terjual</h3>
+          <h2>1.245 Item</h2>
+        </div>
+
+        <div class="card">
+          <h3>Transaksi Hari Ini</h3>
+          <h2>215 Transaksi</h2>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="features" id="fitur">
+    <div class="section-title">
+      <h2>Fitur Unggulan</h2>
+      <p>Semua kebutuhan usaha Anda dalam satu aplikasi kasir digital.</p>
+    </div>
+
+    <div class="feature-grid">
+      <div class="feature-box">
+        <div class="icon">💳</div>
+        <h3>Pembayaran Digital</h3>
+        <p>Mendukung QRIS, transfer bank, e-wallet, dan pembayaran tunai.</p>
+      </div>
+
+      <div class="feature-box">
+        <div class="icon">📦</div>
+        <h3>Manajemen Stok</h3>
+        <p>Pantau stok barang secara otomatis dan real-time tanpa ribet.</p>
+      </div>
+
+      <div class="feature-box">
+        <div class="icon">📊</div>
+        <h3>Laporan Lengkap</h3>
+        <p>Lihat laporan penjualan, keuntungan, dan transaksi setiap hari.</p>
+      </div>
+
+      <div class="feature-box">
+        <div class="icon">👥</div>
+        <h3>Multi User</h3>
+        <p>Bisa digunakan banyak akun kasir dengan data terpisah dan aman.</p>
+      </div>
+
+      <div class="feature-box">
+        <div class="icon">🖨️</div>
+        <h3>Cetak Struk</h3>
+        <p>Mendukung printer thermal untuk cetak struk otomatis.</p>
+      </div>
+
+      <div class="feature-box">
+        <div class="icon">☁️</div>
+        <h3>Cloud System</h3>
+        <p>Data tersimpan aman di cloud dan dapat diakses kapan saja.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="pricing" id="harga">
+    <div class="section-title">
+      <h2>Paket Harga</h2>
+      <p>Pilih paket terbaik sesuai kebutuhan usaha Anda.</p>
+    </div>
+
+    <div class="pricing-grid">
+      <div class="price-card">
+        <h3>Basic</h3>
+        <div class="price">Rp49K</div>
+        <ul>
+          <li>1 Akun Kasir</li>
+          <li>Laporan Penjualan</li>
+          <li>Manajemen Produk</li>
+          <li>Support Email</li>
+        </ul>
+        <a href="#" class="btn">Pilih Paket</a>
+      </div>
+
+      <div class="price-card">
+        <h3>Pro</h3>
+        <div class="price">Rp99K</div>
+        <ul>
+          <li>Multi User</li>
+          <li>QRIS Payment</li>
+          <li>Printer Thermal</li>
+          <li>Realtime Dashboard</li>
+        </ul>
+        <a href="#" class="btn">Pilih Paket</a>
+      </div>
+
+      <div class="price-card">
+        <h3>Enterprise</h3>
+        <div class="price">Rp199K</div>
+        <ul>
+          <li>Unlimited User</li>
+          <li>Cloud Storage</li>
+          <li>Custom Domain</li>
+          <li>Prioritas Support</li>
+        </ul>
+        <a href="#" class="btn">Pilih Paket</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta" id="kontak">
+    <h2>Siap Mengembangkan Bisnis Anda?</h2>
+    <p>
+      Gunakan FORSDIGPOS sekarang dan nikmati kemudahan sistem kasir digital modern untuk semua jenis usaha.
+    </p>
+    <a href="#" class="btn" style="background:white;color:#ef4444;">
+      Hubungi Kami
+    </a>
+  </section>
+
+  <footer>
+    <p>© 2026 FORSDIGPOS - Sistem Kasir Digital Indonesia</p>
+  </footer>
+
+</body>
+</html>
